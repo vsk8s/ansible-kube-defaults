@@ -13,6 +13,9 @@
         - kind: User
           name: kube-apiserver
           apiGroup: ""
+        - kind: Group
+          name: kube-apiserver
+          apiGroup: ""
       roleRef:
         kind: ClusterRole
         name: system:kubelet-api-admin
