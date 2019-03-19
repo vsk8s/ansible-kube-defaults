@@ -1,0 +1,4 @@
+---
+
+kube_defaults_kubeconfig: "~/.kube/config"
+kube_defaults_state: "present"

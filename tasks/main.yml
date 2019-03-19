@@ -1,0 +1,20 @@
+---
+- name: Deploy ClusterRoleBinding for kube-apiserver to kubelets
+  local_action:
+    module:  k8s
+    state: "{{ kube_defaults_state }}"
+    kubeconfig: "{{ kube_defaults_kubeconfig }}"
+    definition:
+      kind: ClusterRoleBinding
+      apiVersion: rbac.authorization.k8s.io/v1beta1
+      metadata:
+        name: kube-apiserver-to-kubelet
+      subjects:
+        - kind: User
+          name: kube-apiserver
+          apiGroup: ""
+      roleRef:
+        kind: ClusterRole
+        name: system:kubelet-api-admin
+        apiGroup: rbac.authorization.k8s.io
+
